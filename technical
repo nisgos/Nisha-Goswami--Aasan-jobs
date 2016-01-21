@@ -1,0 +1,77 @@
+ques 1-------------------------------
+
+#include<stdio.h>
+
+int main()
+{
+int a[100];
+int i,j;
+for(i=0;i<100;i++)
+{
+scanf("%d",&a[i]);
+}
+for(i=0;i<100;i++)
+{
+for(j=i+1;j<100;j++)
+{
+int xor=1;
+xor=a[i]^a[j];
+if(xor==0)
+printf("no occuring twice is %d",a[i]);
+}
+}
+return 0;
+}
+
+
+---------------------------------------------------------
+
+ques 3
+
+
+
+# include <stdio.h>
+# include <stdlib.h> 
+# include <math.h>
+void Pair(int arr[], int arr_size)
+{
+  int inv_count = 0;
+  int l1, r, um, sum, l, min_r;
+ 
+  
+  if(arr_size < 2)
+  {
+    printf("Invalid Input");
+    return;
+  }
+ 
+  l = 0;
+  min_r = 1;
+  um = arr[0] + arr[1];
+ 
+  for(l1 = 0; l1 < arr_size - 1; l1++)
+  {
+    for(r = l+1; r < arr_size; r++)
+    {
+      sum = arr[l1] + arr[r];
+      if(abs(um) > abs(sum))
+      {
+        um = sum;
+        l = l1;
+        min_r = r;
+      }
+    }
+  }
+ 
+  printf(" The two elements whose sum is minimum are %d and %d",
+          arr[l], arr[min_r]);
+}
+ 
+
+int main()
+{
+  int arr[] = {1, 60, -10, 70, -80, 85};
+Pair(arr, 6);
+  getchar();
+  return 0;
+}
